@@ -4,7 +4,7 @@ Q = require "q"
 # 9GAG api parameters
 API_HOST = "http://infinigag.eu01.aws.af.cm"
 API_CATEGORY = "trending" # hot, vote, fresh
-LIMIT = 100 # limit to scrap into DB
+LIMIT = 100 # limit to scrape into DB
 
 # local CouchDB parameters
 DB_HOST = "http://127.0.0.1:5984"

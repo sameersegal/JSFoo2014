@@ -97,7 +97,7 @@ cd couchdb-lucene-1.0.0-SNAPSHOT
 ./bin/run &
 ```
 
-vi /etc/couchdb/local.ini
+vi /etc/couchdb/local.ini or /usr/etc/couchdb/local.ini
 ```
 [httpd_global_handlers]
 _fti = {couch_httpd_proxy, handle_proxy_req, <<"http://127.0.0.1:5985">>}
@@ -118,7 +118,26 @@ function(doc) {
 }
 ```
 
-Query: ?q=caption:gu*
+Full Design Document:
+```
+{
+   "_id": "_design/list",
+   "language": "javascript",
+   "views": {
+       "byVotes": {
+           "map": "function(doc) {\n  emit(doc.votes.count, {caption: doc.caption, images: doc.images[0].link});\n}"
+       }
+   },
+   "fulltext": {
+       "byCaption": {
+           "index": "function(doc) { var ret = new Document(); ret.add(doc.caption,{\"store\":\"yes\"}); return ret;}"
+       }
+   }
+}
+```
+
+Query: http://127.0.0.1:5984/_fti/local/jsfoo/_design/list/byCaption?q=gu*
+
 
 ```
 {
