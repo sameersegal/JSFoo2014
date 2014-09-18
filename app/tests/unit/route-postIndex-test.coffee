@@ -1,7 +1,7 @@
 `import { test, moduleFor } from 'ember-qunit'`
 
-moduleFor "adapter:data", "Unit - DataAdapter",
-	setup: () ->
+moduleFor "route:posts/index", "Unit - Route -  Posts/Index",
+	setup: () -> console.log "Foo"
 	teardown: () ->
 
 test "it exists", () ->
