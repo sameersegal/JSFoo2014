@@ -16,5 +16,14 @@ var app = new EmberApp();
 // modules that you would like to import into your application
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
+// 
+
+app.import("bower_components/bootstrap/dist/js/bootstrap.js");
+app.import("bower_components/bootstrap/dist/css/bootstrap.css");
+app.import("bower_components/typeahead.js/dist/typeahead.jquery.js");
+app.import("bower_components/typeahead.js-bootstrap3.less/typeahead.css");
+
+app.import("vendor/md5.js");
+
 
 module.exports = app.toTree();

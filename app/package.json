@@ -32,6 +32,6 @@
     "glob": "^4.0.5"
   },
   "ember-addon": {
-    "paths": ["../addons/utils"]
+    "paths": ["../addons/adapters","../addons/components"]
   }
 }
