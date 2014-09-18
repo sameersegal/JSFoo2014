@@ -5,10 +5,10 @@ import loadInitializers from 'ember/load-initializers';
 Ember.MODEL_FACTORY_INJECTIONS = true;
 
 var App = Ember.Application.extend({
-  modulePrefix: 'components', // TODO: loaded via config
+  modulePrefix: 'dummy', // TODO: loaded via config
   Resolver: Resolver
 });
 
-loadInitializers(App, 'components');
+loadInitializers(App, 'dummy');
 
 export default App;

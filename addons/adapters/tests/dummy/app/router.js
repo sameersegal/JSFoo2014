@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 var Router = Ember.Router.extend({
-  location: ComponentsENV.locationType
+  location: DummyENV.locationType
 });
 
 Router.map(function() {

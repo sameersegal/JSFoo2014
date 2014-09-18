@@ -1,6 +1,6 @@
 import Ember from 'ember';
-import Application from 'components/app';
-import Router from 'components/router';
+import Application from 'dummy/app';
+import Router from 'dummy/router';
 
 export default function startApp(attrs) {
   var App;

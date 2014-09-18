@@ -3,7 +3,7 @@
     "document": true,
     "window": true,
     "-Promise": true,
-    "ComponentsENV": true
+    "DummyENV": true
   },
   "browser" : true,
   "boss" : true,

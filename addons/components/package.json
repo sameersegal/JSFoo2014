@@ -1,7 +1,6 @@
 {
   "name": "components",
   "version": "0.0.0",
-  "private": true,
   "directories": {
     "doc": "doc",
     "test": "test"
@@ -15,6 +14,12 @@
   "engines": {
     "node": ">= 0.10.0"
   },
+  "keywords": [
+    "ember-addon"
+  ],
+  "ember-addon": {
+    "configPath": "tests/dummy/config"
+  },
   "author": "",
   "license": "MIT",
   "devDependencies": {
@@ -24,13 +29,8 @@
     "ember-cli": "0.0.44",
     "ember-cli-ember-data": "0.1.0",
     "ember-cli-ic-ajax": "0.1.1",
-    "ember-cli-inject-live-reload": "^1.0.2",
-    "ember-cli-qunit": "0.1.0",
+    "ember-cli-qunit": "0.0.5",
     "express": "^4.8.5",
     "glob": "^4.0.5"
-  },
-  "keywords": [
-    "ember-addon"
-  ],
-  "ember-addon-main": "lib/ember-addon-main.js"
+  }
 }
