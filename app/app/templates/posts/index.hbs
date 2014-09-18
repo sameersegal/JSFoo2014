@@ -1,7 +1,12 @@
 Search: {{#artoo-typeahead value=query}}{{/artoo-typeahead}}
 
 <h5>Trending</h5>
-{{#each content}}
-	<bold>{{caption}}</bold>
-	<img />
+<ul>
+{{#each content itemController="posts/item"}}
+	<li>
+		{{id}} | {{votes.count}}
+		<bold>{{caption}}</bold>
+		<img {{bind-attr src=normalImage}} />
+	</li>
 {{/each}}
+</ul>
