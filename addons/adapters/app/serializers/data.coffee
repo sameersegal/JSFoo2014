@@ -30,5 +30,4 @@ DataSerializer = DS.RESTSerializer.extend DS.EmbeddedRecordsMixin,
 
 		payload
 
-
 `export default DataSerializer`

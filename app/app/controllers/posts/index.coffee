@@ -5,9 +5,9 @@ Controller = Ember.ArrayController.extend
 	actions:
 		query: (q, tag) ->
 			query = 
-				category: "list"
+				ddoc: "list"
 				view: "byCaption"
-				q: q
+				q: "#{q}*"
 				limit: 10
 				include_docs: true
 

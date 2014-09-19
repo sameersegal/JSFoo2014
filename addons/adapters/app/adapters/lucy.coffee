@@ -2,15 +2,15 @@
 
 LucyAdapter = DataAdapter.extend
 
-  defaultSerializer: "lucy"
-
   buildURL: (type, id, query) ->
-        # host = @.get "host" 
-        if query.category or query.view  
-            if query.category and query.view
-                category = query.category
+        host = @.get "host"
+        namespace = @.get "namespace"
+
+        if query.ddoc or query.view  
+            if query.ddoc and query.view
+                ddoc = query.ddoc
                 view = query.view
-                delete query.category
+                delete query.ddoc
                 delete query.view
 
                 # clean keys in query
@@ -19,11 +19,11 @@ LucyAdapter = DataAdapter.extend
                   query.data[key] = query[key]
                   delete query[key]
 
-                url = "http://localhost:5984/_fti/local/jsfoo/_design/#{category}/#{view}"
+                url = "#{host}/_fti/local/#{namespace}/_design/#{ddoc}/#{view}"
                 console.log url
                 url
             else
-                throw new Error("Need to specify both category and view to make a /_search query")
+                throw new Error("Need to specify both ddoc and view to make a /_search query")
         else
           @_super type, id, query
   
