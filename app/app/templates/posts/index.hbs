@@ -1,12 +1,53 @@
-Search: {{#artoo-typeahead value=query}}{{/artoo-typeahead}}
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">JSFOO 9GAG</a>
+    </div>
+  </div><!-- /.container-fluid -->
+</nav>
 
-<h5>Trending</h5>
-<ul>
-{{#each content itemController="posts/item"}}
-	<li>
-		{{id}} | {{votes.count}}
-		<bold>{{caption}}</bold>
-		<img {{bind-attr src=normalImage}} />
-	</li>
-{{/each}}
-</ul>
+<div>
+	<form class="form">	
+		{{artoo-typeahead classNames="form-control" placeholder="Search by Caption ..." content=searchResults query="query" selected="selected"}}	
+	</form/>
+
+	<p></p>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<td>Votes</td>
+				<td>Caption</td>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each content itemController="posts/item"}}
+				<tr>
+					<td>{{votes.count}}</td>
+					<td>{{caption}}</td>
+					{{!-- <img {{bind-attr src=normalImage}} /> --}}
+				</tr>
+			{{/each}}
+		</tbody>
+	</table>
+	
+	{{!-- <h5>Trending</h5>
+	<ul>
+
+	{{#each content itemController="posts/item"}}
+		<li>
+			{{id}} | {{votes.count}}
+			<bold>{{caption}}</bold>
+			<img {{bind-attr src=normalImage}} />
+		</li>
+	{{/each}}
+	</ul> --}}
+	
+</div>
