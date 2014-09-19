@@ -4,11 +4,11 @@ DataAdapter = DS.RESTAdapter.extend
   defaultSerializer: "data"
 
   host: "http://127.0.0.1:5984"
-  namespace: "db"
+  namespace: "jsfoo"
 
   buildURL: (type, id, query) ->    
-    host = @.get "host"
-    namespace = @.get "namespace"
+    host = @get "host"
+    namespace = @get "namespace"
       
     if query       
         # _view

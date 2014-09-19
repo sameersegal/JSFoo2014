@@ -2,10 +2,12 @@
 
 LucyAdapter = DataAdapter.extend
 
+  host: "http://127.0.0.1:5984"
   defaultSerializer: "lucy"
 
   buildURL: (type, id, query) ->
-        # host = @.get "host" 
+        host = @.get "host" 
+        namespace = @.get "namespace"
         if query.category or query.view  
             if query.category and query.view
                 category = query.category
@@ -19,9 +21,7 @@ LucyAdapter = DataAdapter.extend
                   query.data[key] = query[key]
                   delete query[key]
 
-                url = "http://localhost:5984/_fti/local/jsfoo/_design/#{category}/#{view}"
-                console.log url
-                url
+                "#{host}/_fti/local/#{namespace}/_design/#{category}/#{view}"
             else
                 throw new Error("Need to specify both category and view to make a /_search query")
         else
