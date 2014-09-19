@@ -1,6 +1,6 @@
-Route = Ember.Route.extend
+Route = Ember.Route.extend()
 
-	model: (params) ->
-		@store.find "post", params.post_id
+	# model: (params) ->
+	# 	@store.find "post", params.post_id
 
 `export default Route`

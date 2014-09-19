@@ -20,8 +20,6 @@ LucyAdapter = DataAdapter.extend
                   delete query[key]
 
                 url = "#{host}/_fti/local/#{namespace}/_design/#{ddoc}/#{view}"
-                console.log url
-                url
             else
                 throw new Error("Need to specify both ddoc and view to make a /_search query")
         else

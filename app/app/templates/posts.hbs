@@ -13,12 +13,10 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-<div>
+<div class="col-md-6">
 	<form class="form">	
 		{{artoo-typeahead classNames="form-control" placeholder="Search by Caption ..." content=searchResults query="query" selected="selected"}}	
 	</form/>
-
-	<p></p>
 
 	<table class="table">
 		<thead>
@@ -31,23 +29,18 @@
 			{{#each content itemController="posts/item"}}
 				<tr>
 					<td>{{votes.count}}</td>
-					<td>{{caption}}</td>
+					<td>
+						{{#link-to "posts.post" this}}
+							{{caption}}
+						{{/link-to}}
+					</td>
 					{{!-- <img {{bind-attr src=normalImage}} /> --}}
 				</tr>
 			{{/each}}
 		</tbody>
 	</table>
-	
-	{{!-- <h5>Trending</h5>
-	<ul>
-
-	{{#each content itemController="posts/item"}}
-		<li>
-			{{id}} | {{votes.count}}
-			<bold>{{caption}}</bold>
-			<img {{bind-attr src=normalImage}} />
-		</li>
-	{{/each}}
-	</ul> --}}
-	
+</div>
+<div class="col-md-6">
+	<h5>Image</h5>
+	{{outlet}}
 </div>
