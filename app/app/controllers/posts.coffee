@@ -15,12 +15,15 @@ Controller = Ember.ArrayController.extend
 			@store.find("post-lucy", query)
 				.then (rows) ->
 					array = rows.map (row) ->
-						console.log row
+						caption = row.get("caption").substring(0,50)
 						Ember.Object.create
-							caption: row.get "value.caption"
+							id: row.get "id"
+							caption: caption
+							votes: row.get "votes.count"
+							imageLink: row.get("images").filterBy("type","normal")[0].get("link")
 					that.set "searchResults", Ember.A array
 
-		# selected: (item, tag) ->
-		# 	@transitionTo "posts", {}
+		selected: (item, tag) ->
+			@transitionToRoute "posts.post", item
 
 `export default Controller`

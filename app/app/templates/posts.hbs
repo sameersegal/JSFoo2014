@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default" role="navigation">
+{{!-- <nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -12,33 +12,42 @@
     </div>
   </div><!-- /.container-fluid -->
 </nav>
+ --}}
+
+<h1 class="text-danger">JSFoo 9GAG</h1>
+<hr/>
 
 <div class="col-md-6">
 	<form class="form">	
-		{{artoo-typeahead classNames="form-control" placeholder="Search by Caption ..." content=searchResults query="query" selected="selected"}}	
+		{{artoo-typeahead classNames="form-control" placeholder="Search by Caption ..." content=searchResults query="query" selected="selected" 
+		itemTemplate="<div class=\"pull-right\">{{votes}}</div>{{caption}} "
+		}}	
 	</form/>
 
-	<table class="table">
-		<thead>
-			<tr>
-				<td>Votes</td>
-				<td>Caption</td>
-			</tr>
-		</thead>
-		<tbody>
-			{{#each content itemController="posts/item"}}
+	<div>
+		<table class="table">
+			<thead>
 				<tr>
-					<td>{{votes.count}}</td>
-					<td>
-						{{#link-to "posts.post" this}}
-							{{caption}}
-						{{/link-to}}
-					</td>
-					{{!-- <img {{bind-attr src=normalImage}} /> --}}
+					<td>Votes</td>
+					<td>Caption</td>
 				</tr>
-			{{/each}}
-		</tbody>
-	</table>
+			</thead>
+			<tbody>
+				{{#each content itemController="posts/item"}}
+					<tr>
+						<td>{{votes.count}}</td>
+						<td>
+							{{#link-to "posts.post" this}}
+								{{caption}}
+							{{/link-to}}
+						</td>
+					</tr>
+				{{/each}}
+			</tbody>
+		</table>	
+	</div>
+
+	
 </div>
 <div class="col-md-6">
 	<h5>Image</h5>
